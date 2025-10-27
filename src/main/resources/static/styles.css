@@ -1,0 +1,271 @@
+/* ---------- BAS ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: radial-gradient(circle at 20% 20%, #1e293b 0%, #0f172a 60%, #000 100%);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- NAVBAR ---------- */
+header {
+  width: 100%;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(8px);
+}
+
+nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.brand-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: transparent; /* ingen vit bakgrund */
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* håller bilden rund */
+}
+
+.brand-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.brand-text-title {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.brand-text-sub {
+  font-size: 11px;
+  line-height: 1.2;
+  color: rgba(255,255,255,0.6);
+}
+
+.nav-buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ---------- KNAPPAR ---------- */
+a {
+  text-decoration: none !important; /* tar bort understrykning på alla länkar */
+  color: inherit;
+}
+
+.btn-outline,
+.btn-solid,
+.hero-btn-primary,
+.hero-btn-secondary {
+  text-decoration: none !important; /* inga streck under texten */
+  cursor: pointer;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+  transition: all 0.15s ease;
+  display: inline-block;
+}
+
+/* Outline-knapp */
+.btn-outline {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  padding: 10px 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+
+.btn-outline:hover {
+  background: rgba(255,255,255,0.12);
+  transform: scale(1.02);
+}
+
+/* Solid-knapp */
+.btn-solid {
+  background: linear-gradient(to right, #facc15, #dc2626);
+  border: 1px solid rgba(0,0,0,0.6);
+  color: #000;
+  padding: 10px 16px;
+  box-shadow: 0 16px 32px rgba(250,204,21,0.4);
+}
+
+.btn-solid:hover {
+  transform: scale(1.02);
+  box-shadow: 0 20px 40px rgba(250,204,21,0.5);
+}
+
+.btn-solid:active,
+.btn-outline:active {
+  transform: scale(0.99);
+}
+
+/* Hero-knappar */
+.hero-btn-primary {
+  width: 100%;
+  max-width: 220px;
+  background: linear-gradient(to right, #facc15, #dc2626);
+  color: #000;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 12px 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.6);
+  cursor: pointer;
+  line-height: 1.2;
+  box-shadow:
+    0 20px 60px -5px rgba(250,204,21,0.4),
+    0 4px 12px rgba(0,0,0,0.6);
+  transition: all 0.15s ease;
+  text-align: center;
+}
+
+.hero-btn-primary:hover {
+  transform: scale(1.02);
+  box-shadow:
+    0 24px 70px -5px rgba(250,204,21,0.5),
+    0 6px 16px rgba(0,0,0,0.75);
+}
+
+.hero-btn-secondary {
+  width: 100%;
+  max-width: 220px;
+  background: rgba(255,255,255,0.03);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+  box-shadow: inset 0 0 10px rgba(255,255,255,0.12), 0 8px 24px rgba(0,0,0,0.6);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.hero-btn-secondary:hover {
+  background: rgba(255,255,255,0.07);
+}
+
+/* ---------- HERO SECTION ---------- */
+main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 24px;
+}
+
+.hero-wrapper {
+  max-width: 768px;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: clamp(2rem, 1.2rem + 2vw, 3rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: #fff;
+  text-shadow: 0 4px 16px rgba(250,204,21,0.25);
+  letter-spacing: -0.03em;
+}
+
+.hero-desc {
+  margin-top: 24px;
+  color: rgba(255,255,255,0.7);
+  font-size: clamp(15px, 0.3vw + 14px, 18px);
+  line-height: 1.6;
+}
+
+.hero-actions {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+@media(min-width: 640px) {
+  .hero-actions {
+    flex-direction: row;
+  }
+}
+
+/* ---------- INFO GRID ---------- */
+.info-grid {
+  margin-top: 48px;
+  display: grid;
+  gap: 16px;
+}
+
+@media(min-width: 768px) {
+  .info-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.info-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow:
+    0 24px 60px rgba(0,0,0,0.8),
+    0 2px 4px rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px);
+  text-align: left;
+}
+
+.info-card-title {
+  color: #fde047; 
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.info-card-text {
+  color: rgba(255,255,255,0.8);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  text-align: center;
+  color: rgba(255,255,255,0.4);
+  font-size: 12px;
+  padding: 24px 16px;
+}
