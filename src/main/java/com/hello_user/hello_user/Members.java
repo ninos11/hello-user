@@ -1,63 +1,81 @@
 package com.hello_user.hello_user;
 
 public class Members {
-    private String FirstName;
-    private String LastName;
-    private String Email;
-    private String PhoneNumber;
-    private String BirthDate;
-    private String Role;
-    private String MemberID;
-    public Members(String firstName, String lastName, String email, String phoneNumber, String birthDate, String role, String memberID) {
-        FirstName = firstName;
-        LastName = lastName;
-        Email = email;
-        PhoneNumber = phoneNumber;
-        BirthDate = birthDate;
-        Role = role;
-        MemberID = memberID;
+    private int memberID;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String phoneNumber;   
+    private String birthDate;     
+    private String role;
+
+    public Members() {}
+
+    public Members(int memberID, String firstName, String lastName, String email, String birthDate, String role, String phoneNumber) {
+        this.memberID = memberID;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.birthDate = birthDate;
+        this.role = role;
+        this.phoneNumber = phoneNumber;
     }
+
+    public int getMemberID() {
+        return memberID;
+    }
+
+    public void setMemberID(int memberID) {
+        this.memberID = memberID;
+    }
+
     public String getFirstName() {
-        return FirstName;
+        return firstName;
     }
+
     public void setFirstName(String firstName) {
-        FirstName = firstName;
+        this.firstName = firstName;
     }
+
     public String getLastName() {
-        return LastName;
+        return lastName;
     }
+
     public void setLastName(String lastName) {
-        LastName = lastName;
+        this.lastName = lastName;
     }
+
     public String getEmail() {
-        return Email;
+        return email;
     }
+
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
+
     public String getPhoneNumber() {
-        return PhoneNumber;
+        return phoneNumber;
     }
+
     public void setPhoneNumber(String phoneNumber) {
-        PhoneNumber = phoneNumber;
+        this.phoneNumber = phoneNumber;
     }
+
     public String getBirthDate() {
-        return BirthDate;
+        return birthDate;
     }
+
     public void setBirthDate(String birthDate) {
-        BirthDate = birthDate;
+        this.birthDate = birthDate;
     }
+
     public String getRole() {
-        return Role;
+        return role;
     }
+
     public void setRole(String role) {
-        Role = role;
+        this.role = role;
     }
-    public String getMemberID() {
-        return MemberID;
-    }
-    public void setMemberID(String memberID) {
-        MemberID = memberID;
-    }
-    
+
+ 
 }
