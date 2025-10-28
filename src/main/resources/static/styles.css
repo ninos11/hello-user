@@ -406,3 +406,19 @@ footer {
       border-radius: 10px;
       text-align: center;
     }
+
+
+/* ---------- Login page ---------- */
+
+.error-message {
+      display: none;
+      margin-top: 8px;
+      background: rgba(220,38,38,0.15); /* röd ton */
+      border: 1px solid rgba(220,38,38,0.4);
+      color: #fecaca;
+      font-size: 0.8rem;
+      line-height: 1.4;
+      padding: 10px 12px;
+      border-radius: 10px;
+      text-align: center;
+    }
