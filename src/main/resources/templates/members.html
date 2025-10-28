@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Våra medlemmar</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Våra medlemmar</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-     <!-- NAVBAR -->
+  <div th:if="${success}" class="success-message" th:text="${success}"></div>
+
+  <!-- NAVBAR -->
   <header>
     <nav>
       <a class="brand" href="/">
@@ -41,59 +43,37 @@
         <table>
           <thead>
             <tr>
-              <th>Namn</th>
+              <th>Förnamn</th>
+              <th>Efternamn</th>
               <th>E-post</th>
               <th>Telefon</th>
               <th>Roll</th>
               <th>Åtgärder</th>
             </tr>
           </thead>
-        
+          <tbody>
+            <tr th:each="member : ${members}">
+              <td th:text="${member.firstName}">Förnamn</td>
+              <td th:text="${member.lastName}">Efternamn</td>
+              <td th:text="${member.email}">E-post</td>
+              <td th:text="${member.phoneNumber}">Telefon</td>
+              <td th:text="${member.role}">Roll</td>
+              <td>
+    <a id="deleteBtn" th:href="@{/remove-member/{memberId}(memberId=${member.memberID})}" class="delete-btn">X</a>
+                
+              </td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </div>
   </div>
 
-  <!-- FOOTER -->
+
+
   <footer>
     <p>© <span id="year"></span> Assyriska Föreningen. All rights reserved.</p>
   </footer>
-
-  <!-- EDIT MODAL -->
-  <div class="modal-backdrop" id="editModal">
-    <div class="modal-card">
-      <h2>Redigera medlem</h2>
-
-      <div class="modal-row">
-        <label for="editName">Namn</label>
-        <input id="editName" type="text" />
-      </div>
-
-      <div class="modal-row">
-        <label for="editEmail">E-post</label>
-        <input id="editEmail" type="email" />
-      </div>
-
-      <div class="modal-row">
-        <label for="editPhone">Telefon</label>
-        <input id="editPhone" type="tel" />
-      </div>
-
-      <div class="modal-row">
-        <label for="editRole">Roll</label>
-        <select id="editRole">
-          <option value="medlem">Medlem</option>
-          <option value="admin">Admin</option>
-        </select>
-      </div>
-
-      <div class="modal-actions">
-        <button class="modal-save" id="saveEdit">Spara</button>
-        <button class="modal-cancel" id="cancelEdit">Avbryt</button>
-      </div>
-    </div>
-  </div>
-
 
   <script src="scripts.js"></script>
 </body>
