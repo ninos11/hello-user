@@ -5,10 +5,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 
 @Controller
-public class Login {
-@GetMapping("/login")
-public String login() {
-    return "login";
+public class Members {
+@GetMapping("/members")
+public String members() {
+    return "members";
 }
 
 }
