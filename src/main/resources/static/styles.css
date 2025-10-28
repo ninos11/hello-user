@@ -422,3 +422,282 @@ footer {
       border-radius: 10px;
       text-align: center;
     }
+
+/* ---------- Members page ---------- */
+
+    .members-card {
+      width: 100%;
+      max-width: 900px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      padding: 24px 24px 16px;
+      box-shadow:
+        0 24px 60px rgba(0,0,0,0.8),
+        0 2px 4px rgba(0,0,0,0.6);
+      backdrop-filter: blur(6px);
+    }
+
+    .members-header {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 24px;
+    }
+
+    @media(min-width:600px){
+      .members-header {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+      }
+    }
+
+    .members-header-text h1 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+    }
+
+    .members-header-text p {
+      margin-top: 6px;
+      color: rgba(255,255,255,0.6);
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    .members-header-actions a {
+      display: inline-block;
+      font-size: 0.8rem;
+      padding: 10px 14px;
+      border-radius: 10px;
+      line-height: 1.2;
+      font-weight: 600;
+      text-align: center;
+      text-decoration: none;
+      background: linear-gradient(to right, #facc15, #dc2626);
+      border: 1px solid rgba(0,0,0,0.6);
+      color: #000;
+      box-shadow:
+        0 20px 60px -5px rgba(250,204,21,0.4),
+        0 4px 12px rgba(0,0,0,0.6);
+      transition: all 0.15s ease;
+    }
+
+    .members-header-actions a:hover {
+      transform: scale(1.02);
+      box-shadow:
+        0 24px 70px -5px rgba(250,204,21,0.5),
+        0 6px 16px rgba(0,0,0,0.75);
+    }
+
+    /* TABELL */
+    .table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 600px;
+    }
+
+    thead {
+      background: rgba(255,255,255,0.08);
+    }
+
+    th {
+      text-align: left;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.7);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      white-space: nowrap;
+    }
+
+    tbody tr {
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    td {
+      padding: 12px;
+      font-size: 0.9rem;
+      color: #fff;
+      line-height: 1.4;
+      vertical-align: top;
+    }
+
+    td .role-pill {
+      display: inline-block;
+      font-size: 0.7rem;
+      line-height: 1.2;
+      font-weight: 600;
+      color: #000;
+      background: linear-gradient(to right, #facc15, #dc2626);
+      border: 1px solid rgba(0,0,0,0.6);
+      border-radius: 999px;
+      padding: 4px 8px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+    }
+
+    /* ACTION-KNAPPAR */
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .btn-small {
+      font-size: 0.75rem;
+      font-weight: 600;
+      line-height: 1.2;
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.2);
+      cursor: pointer;
+      background: rgba(255,255,255,0.07);
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+      transition: all 0.15s ease;
+    }
+
+    .btn-small:hover {
+      background: rgba(255,255,255,0.14);
+      transform: scale(1.03);
+    }
+
+    .btn-delete {
+      border: 1px solid rgba(220,38,38,0.5);
+      color: #fecaca;
+      background: rgba(220,38,38,0.12);
+    }
+
+    .btn-delete:hover {
+      background: rgba(220,38,38,0.2);
+      transform: scale(1.03);
+    }
+
+    /* EDIT MODAL (enkel popup) */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      display: none; /* visas via JS */
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      z-index: 999;
+    }
+
+    .modal-card {
+      width: 100%;
+      max-width: 400px;
+      background: rgba(30,41,59,0.95);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      padding: 20px 20px 24px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.9);
+    }
+
+    .modal-card h2 {
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .modal-row {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .modal-row label {
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .modal-row input,
+    .modal-row select {
+      width: 100%;
+      background: rgba(0,0,0,0.4);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 10px;
+      padding: 10px 12px;
+      color: #fff;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      outline: none;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+    }
+
+    .modal-row input:focus,
+    .modal-row select:focus {
+      border-color: #facc15;
+      box-shadow: 0 0 12px rgba(250,204,21,0.4);
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .modal-save {
+      flex: 1;
+      background: linear-gradient(to right, #facc15, #dc2626);
+      border: 1px solid rgba(0,0,0,0.6);
+      color: #000;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 10px 14px;
+      line-height: 1.2;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow:
+        0 20px 60px -5px rgba(250,204,21,0.4),
+        0 4px 12px rgba(0,0,0,0.6);
+      text-align: center;
+      transition: all 0.15s ease;
+    }
+
+    .modal-cancel {
+      flex: 1;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 10px 14px;
+      line-height: 1.2;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+      text-align: center;
+      transition: all 0.15s ease;
+    }
+
+    .modal-save:hover {
+      transform: scale(1.02);
+      box-shadow:
+        0 24px 70px -5px rgba(250,204,21,0.5),
+        0 6px 16px rgba(0,0,0,0.75);
+    }
+
+    .modal-cancel:hover {
+      background: rgba(255,255,255,0.14);
+      transform: scale(1.02);
+    }

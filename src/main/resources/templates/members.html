@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Våra medlemmar</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+     <!-- NAVBAR -->
+  <header>
+    <nav>
+      <a class="brand" href="/">
+        <div class="brand-logo"><img src="1.png" alt="Logga" /></div>
+        <div>
+          <div class="brand-text-title">Assyriska Föreningen</div>
+        </div>
+      </a>
+
+      <div class="nav-buttons">
+        <a href="/login" class="btn-solid">Logga in</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- INNEHÅLL -->
+  <div class="page-wrapper">
+    <div class="members-card">
+      <div class="members-header">
+        <div class="members-header-text">
+          <h1>Våra medlemmar</h1>
+          <p>Lista över aktiva personer i föreningen.</p>
+        </div>
+
+        <div class="members-header-actions">
+          <a href="/addmembers">Lägg till ny medlem</a>
+        </div>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Namn</th>
+              <th>E-post</th>
+              <th>Telefon</th>
+              <th>Roll</th>
+              <th>Åtgärder</th>
+            </tr>
+          </thead>
+        
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© <span id="year"></span> Assyriska Föreningen. All rights reserved.</p>
+  </footer>
+
+  <!-- EDIT MODAL -->
+  <div class="modal-backdrop" id="editModal">
+    <div class="modal-card">
+      <h2>Redigera medlem</h2>
+
+      <div class="modal-row">
+        <label for="editName">Namn</label>
+        <input id="editName" type="text" />
+      </div>
+
+      <div class="modal-row">
+        <label for="editEmail">E-post</label>
+        <input id="editEmail" type="email" />
+      </div>
+
+      <div class="modal-row">
+        <label for="editPhone">Telefon</label>
+        <input id="editPhone" type="tel" />
+      </div>
+
+      <div class="modal-row">
+        <label for="editRole">Roll</label>
+        <select id="editRole">
+          <option value="medlem">Medlem</option>
+          <option value="admin">Admin</option>
+        </select>
+      </div>
+
+      <div class="modal-actions">
+        <button class="modal-save" id="saveEdit">Spara</button>
+        <button class="modal-cancel" id="cancelEdit">Avbryt</button>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="scripts.js"></script>
+</body>
+</html>
