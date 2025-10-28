@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+      <!-- NAVBAR -->
+  <header>
+    <nav>
+      <a class="brand" href="/">
+        <div class="brand-logo"><img src="1.png" alt="Logga"></div>
+        <div>
+          <div class="brand-text-title">Assyriska Föreningen</div>
+        </div>
+      </a>
+
+      <div class="nav-buttons">
+        <a href="add-member.html" class="btn-outline">Se våra medlemmar</a>
+        <a href="/addmembers" class="btn-outline">Lägg till medlem</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- LOGIN KORT -->
+  <div class="page-wrapper">
+    <div class="form-card">
+      <div class="form-header">
+        <h1>Logga in</h1>
+        <p>Endast administratörer</p>
+      </div>
+
+      <form id="loginForm">
+        <div class="field-group">
+          <label for="user">Användarnamn</label>
+          <input id="user" name="user" type="text" placeholder="admin" required />
+        </div>
+
+        <div class="field-group">
+          <label for="password">Lösenord</label>
+          <input id="password" name="password" type="password" placeholder="admin" required />
+        </div>
+
+        <button type="submit" class="submit-btn">Logga in</button>
+
+        <div class="error-message" id="errorBox">
+          Fel inloggning. Försök igen.
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© <span id="year"></span> Assyriska Föreningen. All rights reserved.</p>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
