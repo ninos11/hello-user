@@ -18,6 +18,7 @@
       </a>
 
       <div class="nav-buttons">
+        <a th:href="@{/}" class="btn-outline">Hem</a>
         <a th:href="@{/members}" class="btn-outline">Se våra medlemmar</a>
         <a th:if="${session.username == 'admin'}" th:href="@{/addmembers}" class="btn-outline">Lägg till medlem</a>
         <a th:if="${session.username == 'admin'}" th:href="@{/logout}" class="btn-solid">Logga ut</a>

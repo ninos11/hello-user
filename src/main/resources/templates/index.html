@@ -44,7 +44,7 @@
           Se våra medlemmar
         </a>
 
-        <a href="/login" class="hero-btn-secondary">
+        <a th:unless="${session.username == 'admin'}" class="hero-btn-secondary">
           Logga in som admin
         </a>
       </div>
