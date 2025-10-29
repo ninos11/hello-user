@@ -20,7 +20,9 @@
       </a>
 
       <div class="nav-buttons">
-        <a href="/login" class="btn-solid">Logga in</a>
+        <a class="btn-outline" th:if="${session.username == 'admin'}" th:href="@{/addmembers}">Lägg till medlem</a>
+        <a th:if="${session.username == 'admin'}" th:href="@{/logout}" class="btn-solid">Logga ut</a>
+        <a th:unless="${session.username == 'admin'}" th:href="@{/login}" class="btn-solid">Logga in</a>
       </div>
     </nav>
   </header>
@@ -35,7 +37,7 @@
         </div>
 
         <div class="members-header-actions">
-          <a href="/addmembers">Lägg till ny medlem</a>
+          <a th:if="${session.username == 'admin'}" th:href="@{/addmembers}">Lägg till ny medlem</a>
         </div>
       </div>
 
@@ -45,22 +47,23 @@
             <tr>
               <th>Förnamn</th>
               <th>Efternamn</th>
+              <th>Födelsedag</th>
               <th>E-post</th>
               <th>Telefon</th>
               <th>Roll</th>
-              <th>Åtgärder</th>
+              <th th:if="${session.username == 'admin'}" th:href="@{/members}">Åtgärder</th>
             </tr>
           </thead>
           <tbody>
             <tr th:each="member : ${members}">
               <td th:text="${member.firstName}">Förnamn</td>
               <td th:text="${member.lastName}">Efternamn</td>
+              <td th:text="${member.birthDate}">Födelsedag</td>
               <td th:text="${member.email}">E-post</td>
               <td th:text="${member.phoneNumber}">Telefon</td>
               <td th:text="${member.role}">Roll</td>
               <td>
-    <a id="deleteBtn" th:href="@{/remove-member/{memberId}(memberId=${member.memberID})}" class="delete-btn">X</a>
-                
+                <a th:if="${session.username == 'admin'}" th:href="@{/remove-member/{memberId}(memberId=${member.memberID})}" id="deleteBtn">X</a>
               </td>
             </tr>
           </tbody>
