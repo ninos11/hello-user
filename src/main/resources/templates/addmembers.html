@@ -22,7 +22,8 @@
 
       <div class="nav-buttons">
         <a href="/members" class="btn-outline">Se våra medlemmar</a>
-        <a href="/login" class="btn-solid">Logga in</a>
+         <a th:if="${session.username == 'admin'}" th:href="@{/logout}" class="btn-solid">Logga ut</a>
+        <a th:unless="${session.username == 'admin'}" th:href="@{/login}" class="btn-solid">Logga in</a>
       </div>
     </nav>
   </header>
@@ -35,22 +36,24 @@
         <p>Fyll i uppgifterna nedan och spara medlemmen i föreningen.</p>
       </div>
 
-      <form id="memberForm" th:object="${newMember}" th:action="@{/addmembers}" method="post">
-        <input type="hidden" th:field="*{memberID}" />
-        <div class="field-group">
-          <label for="firstname">Förnamn</label>
-          <input id="firstname" type="text" placeholder="Ninos" required th:field="*{firstName}"/>
-        </div>
+    
+      <div id="adminForm">
+        <form id="memberForm" th:object="${newMember}" th:action="@{/addmembers}" method="post">
+          <input type="hidden" th:field="*{memberID}" />
+          <div class="field-group">
+            <label for="firstname">Förnamn</label>
+            <input id="firstname" type="text" placeholder="Ninos" required th:field="*{firstName}"/>
+          </div>
 
-        <div class="field-group">
-          <label for="lastname">Efternamn</label>
-          <input id="lastname" type="text" placeholder="Chimon" required th:field="*{lastName}"/>
-        </div>
+          <div class="field-group">
+            <label for="lastname">Efternamn</label>
+            <input id="lastname" type="text" placeholder="Chimon" required th:field="*{lastName}"/>
+          </div>
 
-        <div class="field-group">
-          <label for="email">E-post</label>
-          <input id="email" type="email" placeholder="namn@example.com" required th:field="*{email}"/>
-        </div>
+          <div class="field-group">
+            <label for="email">E-post</label>
+            <input id="email" type="email"   placeholder="example@hotmail.com" th:field="*{email}" />
+          </div>
 
         <div class="field-group">
           <label for="phone">Telefon</label>
@@ -67,15 +70,16 @@
             <label for="role">Roll</label>
             <select id="role" th:field="*{role}">
               <option value="medlem" selected>Medlem</option>
-              <option value="admin">Admin</option>
+              <option value="Ansvarig">Ansvarig</option>
             </select>
           </div>
         </div>
 
-        <button type="submit" class="submit-btn">Spara medlem</button>
+          <button type="submit" class="submit-btn">Spara medlem</button>
+          <div class="success-message" th:if="${success}" th:text="${success}"></div>
+        </form>
+      </div>
 
-        <div class="success-message" th:if="${success}" th:text="${success}"></div>
-      </form>
     </div>
   </div>
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,8 +18,10 @@
       </a>
 
       <div class="nav-buttons">
-        <a href="/members" class="btn-outline">Se våra medlemmar</a>
-        <a href="/addmembers" class="btn-outline">Lägg till medlem</a>
+        <a th:href="@{/members}" class="btn-outline">Se våra medlemmar</a>
+        <a th:if="${session.username == 'admin'}" th:href="@{/addmembers}" class="btn-outline">Lägg till medlem</a>
+        <a th:if="${session.username == 'admin'}" th:href="@{/logout}" class="btn-solid">Logga ut</a>
+        <a th:unless="${session.username == 'admin'}" th:href="@{/login}" class="btn-solid">Logga in</a>
       </div>
     </nav>
   </header>
@@ -28,14 +30,17 @@
   <div class="page-wrapper">
     <div class="form-card">
       <div class="form-header">
-        <h1>Logga in</h1>
-        <p>Endast administratörer</p>
+        <h1>Admin inloggning</h1>
+        <p>Endast administratörer kan lägga till/ta bort medlemmar.</p>
       </div>
 
-      <form id="loginForm">
+     
+
+
+      <form th:unless="${session.username == 'admin'}" th:action="@{/login}" method="post" class="login-form">
         <div class="field-group">
-          <label for="user">Användarnamn</label>
-          <input id="user" name="user" type="text" placeholder="admin" required />
+          <label for="username">Användarnamn</label>
+          <input id="username" name="username" type="text" placeholder="admin" required />
         </div>
 
         <div class="field-group">
@@ -43,10 +48,8 @@
           <input id="password" name="password" type="password" placeholder="admin" required />
         </div>
 
-        <button type="submit" class="submit-btn">Logga in</button>
-
-        <div class="error-message" id="errorBox">
-          Fel inloggning. Försök igen.
+        <div class="field-group">
+          <button type="submit" class="submit-btn">Logga in</button>
         </div>
       </form>
 
