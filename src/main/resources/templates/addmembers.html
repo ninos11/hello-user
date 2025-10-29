@@ -21,6 +21,7 @@
       </a>
 
       <div class="nav-buttons">
+        <a th:href="@{/}" class="btn-outline">Hem</a>
         <a href="/members" class="btn-outline">Se våra medlemmar</a>
          <a th:if="${session.username == 'admin'}" th:href="@{/logout}" class="btn-solid">Logga ut</a>
         <a th:unless="${session.username == 'admin'}" th:href="@{/login}" class="btn-solid">Logga in</a>
