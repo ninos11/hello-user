@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+  <div th:fragment="authSync">
+    <script th:inline="javascript">
+    /*<![CDATA[*/
+    (function(){
+      var sUser = /*[[${session.username}]]*/ null;
+      var sToken = /*[[${session.userToken}]]*/ null;
+      
+      console.log('🔍 Session user:', sUser);
+      console.log('🔍 Session token:', sToken);
+      
+      if (sUser && sToken) {
+        localStorage.setItem('username', sUser);
+        localStorage.setItem('userToken', sToken);
+      } else {
+        localStorage.removeItem('username');
+        localStorage.removeItem('userToken');
+      }
+    })();
+    /*]]>*/
+    </script>
+  </div>
+</body>
+</html>
